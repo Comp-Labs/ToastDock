@@ -1,6 +1,6 @@
 {
   "name": "@techfiddle/toastdock",
-  "version": "2023.4.14",
+  "version": "2023.4.15",
   "description": "A React Toast Component with Beautiful UI.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",

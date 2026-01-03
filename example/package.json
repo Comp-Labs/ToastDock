@@ -14,6 +14,6 @@
         "react-dom": "^18.2.0"
     },
     "dependencies": {
-        "@techfiddle/toastdock": "^2023.4.14"
+        "@techfiddle/toastdock": "latest"
     }
 }

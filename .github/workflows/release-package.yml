@@ -16,18 +16,33 @@ jobs:
       - run: npm ci
       - run: npm test
 
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: npm install && npm run build && npm ci && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
   publish-gpr:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      packages: write
       contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
+          node-version: 16.x
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@Comp-Labs'
           # https://registry.npmjs.org/
       - uses: jgierer12/npm-auth-gpr@v1
         with:

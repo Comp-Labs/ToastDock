@@ -1,3 +1,3 @@
-import MyCounter from './components/App'
+import ToastDock from './components/App'
 
-export { MyCounter }
+export { ToastDock }

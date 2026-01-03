@@ -1,26 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Alert from './Alert';
+import HUD from './HUD';
+import Banner from './Banner';
+import Example from './Test';
 
 type Props = {
-  value?: number
+  position: 'center' | 'top' | 'bottom';
 }
-const MyCounter = ({ value = 0 }: Props) => {
-  const [counter, setCounter] = useState(value)
+export default function ToastDock({ position }: Props) {
+  // let transformStyle = {};
 
-  const onMinus = () => {
-    setCounter((prev) => prev - 1)
-  }
-
-  const onPlus = () => {
-    setCounter((prev) => prev + 1)
-  }
-
+  // if (position === 'center') {
+  //   transformStyle = { transform: 'translate(-50%, -50%)' };
+  // } else if (position === 'top') {
+  //   transformStyle = { transform: 'translate(-50%, 0)' };
+  // } else if (position === 'bottom') {
+  //   transformStyle = { transform: 'translate(-50%, 100%)' };
+  // }
   return (
-    <div>
-      <h1>Counter: {counter}</h1>
-      <button onClick={onMinus}>-</button>
-      <button onClick={onPlus}>+</button>
-    </div>
+    // <div style={{ ...transformStyle }}></div>
+    <Example />
   )
 }
-
-export default MyCounter
